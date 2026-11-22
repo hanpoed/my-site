@@ -16,6 +16,6 @@ file_get_contents("https://api.telegram.org/bot$token/sendMessage?" . http_build
 
  
 
-header("Location: ../bet.html");?>
-
-<?php
+header("Location: ../bet.html");
+exit;
+?>
