@@ -2,27 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "myprojet/api/index.php",
-      "use": "vercel-php@0.7.1",
-      "config": {
-        "includeFiles": [
-          "myprojet/api/apppp/**"
-        ]
-      }
+      "src": "myprojet/api/**/*.php",
+      "use": "vercel-php@0.7.1"
     },
     {
-      "src": "myprojet/api/apppp/iclllll/res/**",
+      "src": "myprojet/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf))",
-      "dest": "/myprojet/api/apppp/iclllll/$1"
+      "src": "/api/(.*\\.php)",
+      "dest": "/myprojet/api/$1"
     },
     {
-      "src": "/res/(.*)",
-      "dest": "/myprojet/api/apppp/iclllll/res/$1"
+      "src": "/(.*\\.(html|css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf))",
+      "dest": "/myprojet/$1"
     },
     {
       "src": "/(.*)",
