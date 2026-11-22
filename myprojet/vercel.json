@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "myprojet/api/index.php",
+      "use": "vercel-php@0.7.1",
+      "config": {
+        "includeFiles": [
+          "myprojet/api/**"
+        ]
+      }
+    },
+    {
+      "src": "myprojet/api/**/*.+(css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf)",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf))",
+      "dest": "/myprojet/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/myprojet/api/index.php"
+    }
+  ]
+}
